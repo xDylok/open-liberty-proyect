@@ -29,25 +29,6 @@ public class AuthenticationBean implements java.io.Serializable{
         return "/login.xhtml?faces-redirect=true";
     }
 
-    public String recuperarContrasena() {
-        if (username == null || username.trim().isEmpty()) {
-            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Debe ingresar su nombre de usuario.");
-            FacesContext.getCurrentInstance().addMessage(null, msg);
-            return null;
-        }
-
-        // Simular envío de correo de recuperación
-        logger.info("Solicitud de recuperación de contraseña para el usuario: " + username);
-
-        // Aquí podrías validar si el usuario existe en la base de datos y luego enviar el correo
-
-        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Éxito",
-                "Se ha enviado un enlace de recuperación al correo asociado al usuario.");
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-
-        return null; // No redireccionamos, solo mostramos el mensaje
-    }
-
     public static void setLogger(Logger logger) {
         AuthenticationBean.logger = logger;
     }
