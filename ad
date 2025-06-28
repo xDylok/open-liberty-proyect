@@ -1,0 +1,20 @@
+[1mdiff --git a/src/main/java/unl/edu/cc/jbrews/jakarta/controller/AuthenticationBean.java b/src/main/java/unl/edu/cc/jbrews/jakarta/controller/AuthenticationBean.java[m
+[1mindex 5eab1a6..71bbbc3 100644[m
+[1m--- a/src/main/java/unl/edu/cc/jbrews/jakarta/controller/AuthenticationBean.java[m
+[1m+++ b/src/main/java/unl/edu/cc/jbrews/jakarta/controller/AuthenticationBean.java[m
+[36m@@ -21,6 +21,15 @@[m [mpublic class AuthenticationBean implements java.io.Serializable{[m
+         return "jbrews?faces-redirect=true";[m
+     }[m
+ [m
+[32m+[m[32m    public String register(){[m
+[32m+[m[32m        logger.info("Registering with username: "+username);[m
+[32m+[m[32m        logger.info("Registering with password: "+ password);[m
+[32m+[m[32m        FacesMessage fc=new FacesMessage("Registered Successfully");[m
+[32m+[m[32m        FacesContext.getCurrentInstance().addMessage(null,fc);[m
+[32m+[m[32m        fc.rendered();[m
+[32m+[m[32m        return "/login.xhtml?faces-redirect=true";[m
+[32m+[m[32m    }[m
+[32m+[m
+     public String logout(){[m
+         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();[m
+         FacesMessage fc=new FacesMessage("Logged out Succesfully");[m

@@ -21,6 +21,15 @@ public class AuthenticationBean implements java.io.Serializable{
         return "jbrews?faces-redirect=true";
     }
 
+    public String register(){
+        logger.info("Registering with username: "+username);
+        logger.info("Registering with password: "+ password);
+        FacesMessage fc=new FacesMessage("Registered Successfully");
+        FacesContext.getCurrentInstance().addMessage(null,fc);
+        fc.rendered();
+        return "/login.xhtml?faces-redirect=true";
+    }
+
     public String logout(){
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         FacesMessage fc=new FacesMessage("Logged out Succesfully");
