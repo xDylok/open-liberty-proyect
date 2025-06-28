@@ -21,10 +21,10 @@ public class AuthenticationBean implements java.io.Serializable{
         return "jbrews?faces-redirect=true";
     }
 
-    public String logout(){
+    public String logout() {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-        FacesMessage fc=new FacesMessage("Logged out Succesfully");
-        FacesContext.getCurrentInstance().addMessage(null,fc);
+        FacesMessage fc = new FacesMessage("Logged out Succesfully");
+        FacesContext.getCurrentInstance().addMessage(null, fc);
         fc.rendered();
         return "/login.xhtml?faces-redirect=true";
     }
